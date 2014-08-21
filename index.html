@@ -1,0 +1,58 @@
+<html>
+<style>
+	.holder {
+		text-align:center;
+		font-family:"calibri", "segoe ui", "droid sans";
+		font-size:1.5em;
+		margin-top:20%;
+		top:50%;
+	}
+	
+	body {
+		background-color: #ECF0F1;
+	}
+
+	a {
+		color: #000000;
+		text-decoration:none;
+		border-bottom:dashed 1px black;
+		padding-bottom:-10px;
+	}
+</style>
+<body>
+	<div class="holder">
+		<div class="downed">Hi.</div>
+	</div>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script>
+		var texts=["I am Krishna Ram Prakash <br>(a.k.a) gTux",
+					"You can call me KRP",
+					"I am a backend web <strike>developer</strike> wizard.",
+					"Been coding for past 8 years with 5 years experience <br> in web development",
+					"Paranoid about web security and deserted parks",
+					"I love minimalistic designs and coffee",
+					"Or I should rather say that I'm only good at creating minimal designs",
+					"I spend an awful lot of time on security challenge sites <br>like <a href=\"canyouhack.it\">canyouhack.it</a>, <a href=\"wixxerd.com\">wixxerd.com</a>, <a href=\"wechall.net\">wechall.net",
+					"From which I have gained tons of knowledge and experience.",
+					"You can get in touch with me via <a href=\"mailto:krp@gtux.in\">mail</a> <br> <a href=\"https://facebook.com/geekytux\">Facebook</a> or <a href=\"https://twitter.com/geekytux\">Twitter</a>",
+					];
+
+		function show_next_text(counter, len) {
+			if (counter >= len)
+				return
+			if(counter == 0)
+				fout_timer = 2500
+			else
+				fout_timer = 1000
+			$('.downed').animate({ opacity: 0 }, fout_timer, function(){
+				$('.downed').html(texts[counter])
+				$('.downed').animate({ opacity: 1},1000).delay(1750);
+				show_next_text(counter + 1, len);
+			});
+		}
+		show_next_text(0, texts.length);
+		
+	</script>
+</body>
+</html>
+
